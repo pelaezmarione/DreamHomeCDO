@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Property Owners ({{ branch_key }})</h2>
+
+<a class="btn" href="{{ url_for('branch.owners_add') }}">Add Owner</a>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>Barangay</th>
+    <th>Actions</th>
+  </tr>
+
+  {% for owner in owners %}
+  <tr>
+    <td>{{ owner.owner_id }}</td>
+    <td>{{ owner.first_name }} {{ owner.middle_name }} {{ owner.last_name }}</td>
+    <td>{{ owner.contact_number }}</td>
+    <td>{{ owner.email_address }}</td>
+    <td>{{ owner.barangay }}</td>
+    <td>
+      <a href="{{ url_for('branch.owners_edit', owner_id=owner.owner_id) }}">Edit</a>
+      <form method="post" action="{{ url_for('branch.owners_delete', owner_id=owner.owner_id) }}" style="display:inline;">
+        <button onclick="return confirm('Delete this owner?')">Delete</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

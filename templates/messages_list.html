@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Messages ({{ branch_key }})</h2>
+
+<a class="btn" href="{{ url_for('branch.messages_add') }}">Send Message</a>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Customer</th>
+    <th>Owner</th</th>
+    <th>Message</th>
+    <th>Sender</th>
+    <th>Receiver</th>
+    <th>Timestamp</th>
+  </tr>
+
+  {% for m in messages %}
+  <tr>
+    <td>{{ m.message_id }}</td>
+    <td>{{ m.customer_name }}</td>
+    <td>{{ m.owner_name }}</td>
+    <td>{{ m.message_content }}</td>
+    <td>{{ m.sender_type }}</td>
+    <td>{{ m.receiver_type }}</td>
+    <td>{{ m.timestamp }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

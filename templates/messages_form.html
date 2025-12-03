@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Send Message</h2>
+
+<form method="post" class="form-card">
+
+  <label>Customer</label>
+  <select name="customer_id" required>
+    {% for c in customers %}
+      <option value="{{ c.customer_id }}">{{ c.first_name }} {{ c.last_name }}</option>
+    {% endfor %}
+  </select>
+
+  <label>Owner</label>
+  <select name="owner_id" required>
+    {% for o in owners %}
+      <option value="{{ o.owner_id }}">{{ o.first_name }} {{ o.last_name }}</option>
+    {% endfor %}
+  </select>
+
+  <label>Message Content</label>
+  <textarea name="message_content" required></textarea>
+
+  <label>Sender</label>
+  <select name="sender_type" required>
+    <option value="customer">Customer</option>
+    <option value="owner">Owner</option>
+  </select>
+
+  <button type="submit">Send</button>
+</form>
+
+{% endblock %}

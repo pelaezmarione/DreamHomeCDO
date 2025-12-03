@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Manage Branches</h2>
+
+<form method="post" class="form-card">
+  <h3>Add Branch</h3>
+  <label>Branch Key</label>
+  <input name="branch_key" placeholder="pueblo or lapasan" required>
+
+  <label>Branch Name</label>
+  <input name="branch_name" required>
+
+  <label>Street</label>
+  <input name="street">
+
+  <label>Barangay</label>
+  <input name="barangay">
+
+  <label>Contact Number</label>
+  <input name="contact_number">
+
+  <button type="submit">Add Branch</button>
+</form>
+
+<h3>Existing Branches</h3>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Key</th>
+    <th>Name</th>
+    <th>Street</th>
+    <th>Barangay</th>
+    <th>Contact</th>
+  </tr>
+
+  {% for b in branches %}
+  <tr>
+    <td>{{ b.branch_id }}</td>
+    <td>{{ b.branch_key }}</td>
+    <td>{{ b.branch_name }}</td>
+    <td>{{ b.street }}</td>
+    <td>{{ b.barangay }}</td>
+    <td>{{ b.contact_number }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

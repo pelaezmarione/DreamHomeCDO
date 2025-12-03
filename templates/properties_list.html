@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Properties ({{ branch_key }})</h2>
+<a class="btn" href="{{ url_for('branch.properties_add') }}">Add Property</a>
+<table>
+  <tr>
+    <th>ID</th><th>Title</th><th>Price</th><th>Type</th><th>Status</th><th>Actions</th>
+  </tr>
+  {% for p in properties %}
+  <tr>
+    <td>{{ p.property_id }}</td>
+    <td>{{ p.title }}</td>
+    <td>{{ p.price }}</td>
+    <td>{{ p.listing_type }}</td>
+    <td>{{ p.status }}</td>
+    <td>
+      <a href="{{ url_for('branch.properties_edit', property_id=p.property_id) }}">Edit</a>
+      <form method="post" action="{{ url_for('branch.properties_delete', property_id=p.property_id) }}" style="display:inline;">
+        <button onclick="return confirm('Delete this property?')">Delete</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

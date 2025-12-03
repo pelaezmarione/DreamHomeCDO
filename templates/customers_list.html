@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Customers ({{ branch_key }})</h2>
+
+<a class="btn" href="{{ url_for('branch.customers_add') }}">Add Customer</a>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>Barangay</th>
+    <th>Actions</th>
+  </tr>
+
+  {% for c in customers %}
+  <tr>
+    <td>{{ c.customer_id }}</td>
+    <td>{{ c.first_name }} {{ c.middle_name }} {{ c.last_name }}</td>
+    <td>{{ c.contact_number }}</td>
+    <td>{{ c.email_address }}</td>
+    <td>{{ c.barangay }}</td>
+    <td>
+      <a href="{{ url_for('branch.customers_edit', customer_id=c.customer_id) }}">Edit</a>
+      <form method="post" action="{{ url_for('branch.customers_delete', customer_id=c.customer_id) }}" style="display:inline;">
+        <button onclick="return confirm('Delete this customer?')">Delete</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

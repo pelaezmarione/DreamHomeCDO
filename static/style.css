@@ -1,0 +1,57 @@
+body {
+    font-family: Arial;
+    background: #f2f2f2;
+}
+
+nav {
+    background: #0275d8;
+    padding: 10px;
+    color: white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.form-card {
+    background: white;
+    padding: 20px;
+    width: 350px;
+    margin: auto;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+button, .btn {
+    padding: 8px 12px;
+    background: #0275d8;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.property-grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.property-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}

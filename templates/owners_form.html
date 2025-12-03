@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ action }} Owner</h2>
+
+<form method="post" class="form-card">
+
+  <label>First Name</label>
+  <input name="first_name" value="{{ owner.first_name if owner }}" required>
+
+  <label>Middle Name</label>
+  <input name="middle_name" value="{{ owner.middle_name if owner }}">
+
+  <label>Last Name</label>
+  <input name="last_name" value="{{ owner.last_name if owner }}" required>
+
+  <label>Contact Number</label>
+  <input name="contact_number" value="{{ owner.contact_number if owner }}" required>
+
+  <label>Email Address</label>
+  <input name="email_address" value="{{ owner.email_address if owner }}" required>
+
+  <label>Barangay</label>
+  <input name="barangay" value="{{ owner.barangay if owner }}">
+
+  <button type="submit">{{ action }}</button>
+</form>
+{% endblock %}

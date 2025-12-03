@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>{{ property.title }}</h2>
+
+<p><strong>Barangay:</strong> {{ property.barangay }}</p>
+<p><strong>Description:</strong> {{ property.description }}</p>
+<p><strong>Address:</strong> {{ property.full_address }}</p>
+<p><strong>Price:</strong> ₱{{ property.price }}</p>
+<p><strong>Status:</strong> {{ property.status }}</p>
+
+<a class="btn" href="/user/home">Back</a>
+
+{% endblock %}

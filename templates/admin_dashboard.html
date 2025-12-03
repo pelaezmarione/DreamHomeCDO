@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div class="cards">
+  <div class="card">Branches<br>{{ branches_count }}</div>
+  <div class="card">Users<br>{{ users_count }}</div>
+</div>
+
+<nav class="menu">
+  <a href="{{ url_for('admin.branches') }}">Manage Branches</a>
+  <a href="{{ url_for('admin.users') }}">Manage Users</a>
+</nav>
+{% endblock %}

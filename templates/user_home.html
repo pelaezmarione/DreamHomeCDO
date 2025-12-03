@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Welcome, {{ username }}!</h2>
+<h3>Available Properties</h3>
+
+<div class="property-grid">
+    {% for p in properties %}
+    <div class="property-card">
+        <h3>{{ p.title }}</h3>
+        <p>Barangay: {{ p.barangay }}</p>
+        <p>Price: ₱{{ p.price }}</p>
+        <a class="btn" href="/user/property/{{ p.property_id }}">View Details</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

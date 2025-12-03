@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Appointments ({{ branch_key }})</h2>
+
+<a class="btn" href="{{ url_for('branch.appointments_add') }}">Add Appointment</a>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Property</th>
+    <th>Customer</th>
+    <th>Date & Time</th>
+    <th>Status</th>
+  </tr>
+
+  {% for a in appointments %}
+  <tr>
+    <td>{{ a.appointment_id }}</td>
+    <td>{{ a.property_title }}</td>
+    <td>{{ a.customer_name }}</td>
+    <td>{{ a.appointment_datetime }}</td>
+    <td>{{ a.status }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

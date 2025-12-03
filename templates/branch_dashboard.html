@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Branch Dashboard ({{ branch_key }})</h2>
+<div class="cards">
+  <div class="card">Properties<br>{{ properties_count }}</div>
+  <div class="card">Owners<br>{{ owners_count }}</div>
+  <div class="card">Customers<br>{{ customers_count }}</div>
+  <div class="card">Appointments<br>{{ appointments_count }}</div>
+</div>
+
+<nav class="menu">
+  <a href="{{ url_for('branch.properties_list') }}">Properties</a>
+  <a href="{{ url_for('branch.owners_list') }}">Owners</a>
+  <a href="{{ url_for('branch.customers_list') }}">Customers</a>
+  <a href="{{ url_for('branch.appointments_list') }}">Appointments</a>
+  <a href="{{ url_for('branch.messages_list') }}">Messages</a>
+</nav>
+{% endblock %}

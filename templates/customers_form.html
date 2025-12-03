@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ action }} Customer</h2>
+
+<form method="post" class="form-card">
+
+  <label>First Name</label>
+  <input name="first_name" value="{{ customer.first_name if customer }}" required>
+
+  <label>Middle Name</label>
+  <input name="middle_name" value="{{ customer.middle_name if customer }}">
+
+  <label>Last Name</label>
+  <input name="last_name" value="{{ customer.last_name if customer }}" required>
+
+  <label>Contact Number</label>
+  <input name="contact_number" value="{{ customer.contact_number if customer }}" required>
+
+  <label>Email Address</label>
+  <input name="email_address" value="{{ customer.email_address if customer }}" required>
+
+  <label>Barangay</label>
+  <input name="barangay" value="{{ customer.barangay if customer }}">
+
+  <button type="submit">{{ action }}</button>
+</form>
+{% endblock %}
